@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NewsApp Authentication</title>
+</head>
+<body>
+    <h2>My News App</h2>
+    <a href="{% url 'index' %}">Home</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+    {% else %}
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+
+    <hr>
+    {% block body %}
+
+    {% endblock %}
+</body>
+</html>
