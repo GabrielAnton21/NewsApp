@@ -1,0 +1,69 @@
+{%  extends 'NewsApp/base.html' %}
+
+{% block body %}
+    <style>
+        body
+        {
+            background: #2D2D2D;
+            padding: 3% 10%;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h2 class="display-4 text-center text-light">Home Page</h2>
+            </div>
+        </div>
+        <div class="row align-content-center">
+            <div class="col-sm">
+                {% if user.is_authenticated %}
+                    <p class="badge badge-primary text-center">Welcome {{ user.username }}</p>
+                {% else %}
+                    <p class="badge badge-primary text-center">Welcome to News App</p>
+                    <p class="badge badge-info text-center">Register for full news catalog.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="card text-white border-light bg-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <p id="section"></p>
+                        <p id="subsection"></p>
+                    </div>
+                    <div class="card-body">
+                        <p id="title"></p>
+                        <p id="abstract"></p>
+                        <div class="card-img-bottom" id="pictures"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $.ajax({
+            url: 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=iM1aUggLuTYLPqRCmEkxq3vq1ZDeIJso',
+            datatype: 'json',
+            success: function(data){
+                const image = new Image();
+                console.log(data);
+                const result = data.results[0];
+                const section = result.section;
+                const subsection = result.subsection;
+                const title = result.title;
+                const abstract = result.abstract;
+                const pictures = result.multimedia[0];
+                const pictures_url = pictures.url;
+                $('#section').text(section);
+                $('#subsection').text(subsection);
+                $('#title').text(title);
+                $('#abstract').text(abstract);
+                image.src = pictures_url;
+                $('#pictures').append(image);
+            }
+        });
+    </script>
+{% endblock %}
