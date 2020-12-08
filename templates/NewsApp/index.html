@@ -14,6 +14,7 @@
     <p id="subsection"></p>
     <p id="title"></p>
     <p id="abstract"></p>
+    <p><a href="" id="url">View Article</a></p>
     <div id="pictures"></div>
 
     <script>
@@ -30,12 +31,15 @@
                 const abstract = result.abstract;
                 const pictures = result.multimedia[0];
                 const pictures_url = pictures.url;
+                const url = result.url;
                 $('#section').text(section);
                 $('#subsection').text(subsection);
                 $('#title').text(title);
                 $('#abstract').text(abstract);
+                $('#url').attr("href", url);
                 image.src = pictures_url;
                 $('#pictures').append(image);
+
             }
         });
 
