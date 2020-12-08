@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NewsApp Authentication</title>
+    <title>Get Your News Here</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    <h2>My News App</h2>
-    <a href="{% url 'index' %}">Home</a>
 
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Log Out</a>
-    {% else %}
-        <a href="{% url 'register' %}">Register</a>
-        <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
+
+    <div class="p-6 jumbotron jumobtron-fluid text-white" style="background: url(https://images.squarespace-cdn.com/content/v1/5a111b37c027d8fee92f9e4c/1534519032824-M53Y5K28CX2ETWVDR899/ke17ZwdGBToddI8pDm48kPjg6bM-W17gCtBWJ8Mjp2AUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnBItPiluyZS-UhYJJ6omcW3Y-2_8y8J8iHad74oPUfQWBOqOCHXbC31Z0m-iT7ZRQQ/Latest-News-Banner-01.png?format=2500w)">
+        <div class="container">
+        <h2>My News App</h2>
+        <a href="{% url 'index' %}">Home</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+
+        </div>
+        <a class="btn btn-primary btn-lg" href="#" role="button">About &raquo;</a>
+    </div>
+
 
     <script
   src="https://code.jquery.com/jquery-3.5.1.js"

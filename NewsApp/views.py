@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def index(request):
-    return render(request, 'NewsApp/index.html')
+    return render(request, 'NewsApp_view/index_view.html')
 
 
 def register(request):
@@ -19,7 +19,7 @@ def register(request):
         form = UserCreationForm()
 
     context = {'form': form}
-    return render(request, 'NewsApp/register.html', context)
+    return render(request, 'NewsApp_view/register_view.html', context)
 
 
 def login_view(request):
@@ -33,7 +33,7 @@ def login_view(request):
         form = AuthenticationForm()
 
     context = {'form': form}
-    return render(request, 'NewsApp/login.html', context)
+    return render(request, 'NewsApp_view/login_view.html', context)
 
 
 def logout_view(request):
