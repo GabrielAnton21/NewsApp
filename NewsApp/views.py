@@ -22,7 +22,7 @@ def register(request):
     return render(request, 'NewsApp/register.html', context)
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
@@ -36,6 +36,6 @@ def login(request):
     return render(request, 'NewsApp/login.html', context)
 
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return redirect('login')

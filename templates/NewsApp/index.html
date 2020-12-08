@@ -10,4 +10,29 @@
         <p>Register for full news catalog.</p>
     {% endif %}
 
+    <p id="section"></p>
+    <p id="subsection"></p>
+    <p id="title"></p>
+    <p id="abstract"></p>
+
+    <script>
+        $.ajax({
+            url: 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=iM1aUggLuTYLPqRCmEkxq3vq1ZDeIJso',
+            datatype: 'json',
+            success: function(data){
+                console.log(data);
+                const result = data.results[0];
+                const section = result.section;
+                const subsection = result.subsection;
+                const title = result.title;
+                const abstract = result.abstract;
+                $('#section').text(section);
+                $('#subsection').text(subsection);
+                $('#title').text(title);
+                $('#abstract').text(abstract);
+            }
+        });
+
+    </script>
+
 {% endblock %}
