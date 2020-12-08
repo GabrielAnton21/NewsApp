@@ -14,22 +14,28 @@
     <p id="subsection"></p>
     <p id="title"></p>
     <p id="abstract"></p>
+    <div id="pictures"></div>
 
     <script>
         $.ajax({
             url: 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=iM1aUggLuTYLPqRCmEkxq3vq1ZDeIJso',
             datatype: 'json',
             success: function(data){
+                const image = new Image();
                 console.log(data);
                 const result = data.results[0];
                 const section = result.section;
                 const subsection = result.subsection;
                 const title = result.title;
                 const abstract = result.abstract;
+                const pictures = result.multimedia[0];
+                const pictures_url = pictures.url;
                 $('#section').text(section);
                 $('#subsection').text(subsection);
                 $('#title').text(title);
                 $('#abstract').text(abstract);
+                image.src = pictures_url;
+                $('#pictures').append(image);
             }
         });
 
