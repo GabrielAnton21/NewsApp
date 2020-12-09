@@ -1,10 +1,23 @@
 {% extends 'NewsApp/base.html' %}
 
 {% block body %}
-    <h2 class="display-4 text-center text-light">Register</h2>
-    <form class="text-light" action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <h2 class="display-4 text-center text-light">Register</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-auto">
+
+                <form class="text-light" action="" method="post">
+                    <div class="text-monospace text-bolder">
+                        {% csrf_token %}
+                        {{ form }}
+                    </div>
+                    <button class="btn btn-primary" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
