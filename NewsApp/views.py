@@ -15,9 +15,9 @@ def index(request):
 
         response = requests.get(url)
         data = response.json()
-        totalResults = data['totalResults']
+        # totalResults = data['totalResults']
         articles = data['articles']
-        return render(request, 'NewsApp_view/index.html', {'articles': articles, 'totalResults': totalResults})
+        return render(request, 'NewsApp_view/index.html', {'articles': articles})
     else:
         return render(request, 'NewsApp_view/index.html')
 
