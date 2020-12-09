@@ -15,7 +15,7 @@
         #jumbo-bg
         {
             background: url(https://images.squarespace-cdn.com/content/v1/5a111b37c027d8fee92f9e4c/1534519032824-M53Y5K28CX2ETWVDR899/ke17ZwdGBToddI8pDm48kPjg6bM-W17gCtBWJ8Mjp2AUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnBItPiluyZS-UhYJJ6omcW3Y-2_8y8J8iHad74oPUfQWBOqOCHXbC31Z0m-iT7ZRQQ/Latest-News-Banner-01.png?format=2500w);
-            /*background-size: 100% 100%;*/
+            {#background-size: 100% auto;#}
             background-repeat: no-repeat;
             background-position: 15% 15%;
         }
@@ -44,8 +44,16 @@
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<div class="container mt-5">
+{% block body %}
+{% endblock %}
+</div>
+
+
     <hr>
-    {% block body %}
+    {% block script %}
 
     {% endblock %}
 </body>
